@@ -1,0 +1,21 @@
+html
+    head
+        title Show Users
+        style
+            include style.css
+    body
+        table
+            tr
+                each key in Object.keys(users[0])
+                    th= key
+                th Remove
+                th Edit
+            each user in users
+                tr
+                    each prop in user
+                        td= prop
+                    td
+                        a(href='/edit/' + user.id) Edit
+                    td
+                        a(href='/remove/' + user.id) Remove
+        a(href='/createUser') Create New User
